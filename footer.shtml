@@ -1,0 +1,4 @@
+    <!--#config timefmt=" %Y" -->
+<footer>
+     Бондаренко И. А. Номер телефона:88005553535 © <!--#echo var="DATE_LOCAL"--> 
+    </footer>

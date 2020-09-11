@@ -1,0 +1,182 @@
+
+@media print{
+body{
+        font-family:  'Playfair Display SC', serif; /* Семейство шрифтов */
+        font-size: 70%;
+        background-color:whitesmoke;
+        display: grid;
+        color:black;
+        grid-template-areas:"header header header"
+        "nav article ads"
+        "footer footer footer";
+        grid-template-rows: 60px 1fr 40px;
+        grid-template-columns: minmax(70px,0.9fr) minmax(600px,8fr) minmax(70px,0.9fr);
+        grid-gap: 0px;
+        height: 100vh;
+        margin: 0;
+       /* background-image: url(back.jpg);*/
+    }
+    .ad{
+        display: none;
+    }
+    div.menu{
+        grid-area: header;
+        border: 4px ridge black;
+        border-radius:  10px;
+        color:#f5f6f6; 
+        border-radius: 0px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        text-align: center;
+    }
+    div.ads{
+        display:none;
+        grid-area:ads;
+    }
+    article{
+        grid-area: article;
+    }
+    nav{
+        display:none;
+        grid-area: nav;
+        font-weight: 300;
+        padding-bottom: 20px;
+    }
+    footer{
+        grid-area: footer;
+        color:whitesmoke;
+        text-align: center;
+        font-family:  Arial, 'Times New Roman', Times, serif ;
+        font-weight: 100;
+        font-style: oblique;
+    }
+    a{
+        font-family: Arial, 'Times New Roman', Times, serif; /* Семейство шрифтов */
+        font-size: 13pt;
+        color:#f5f6f6;
+        text-decoration: none;
+    }
+    p{
+        padding-top:3px;
+    }
+    h2{
+        margin-top:10px;
+    }
+    div{
+        color:#f5f6f6;
+        } 
+    div.logo{
+        position: absolute; /* Абсолютное позиционирование */
+        top: 12px; /* Положение от нижнего края */
+        left: 15px; /* Положение от правого края */
+        padding-top: 5px;
+        font-size: 16pt;
+    }
+    .name{
+        border: 4px ridge black;
+        border-radius:  10px;
+        background-color: #7e74b0;
+        color:#f5f6f6;
+        font-family:  impact, 'Times New Roman', Times, serif ;
+        height: 20px;
+        width: 200px;
+        padding: 5px;
+        text-decoration: none;
+      /*  margin-left: 20px;*/
+    }
+    div.position{
+        color:black;
+        background-color: inherit;
+        height: 400px;
+        width: 570px;
+        border:4px hidden;
+        margin-top: 1%;
+        margin-right: auto;
+        margin-left: auto;
+        padding-left: 10px;
+        border-radius: 7px;
+        border-bottom:1px ridge rgba(0,0,0,0.6);
+        margin-bottom:2px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    .title{
+        font-size: 18pt;
+        width:300px;
+        height: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom:20px ;
+        text-align: center;
+    }
+    a.link{
+        margin:5px;
+        padding: 5px;
+        text-align: center;
+        height: 40px;
+    }
+    a.link.bottom{
+        margin:5px;
+        padding: 5px;
+        background-color:inherit;
+        text-align: center;
+        height: 20px;
+        padding-bottom: 0px;
+        margin-bottom: 0;
+    }
+    div.catalog{
+        overflow-x: hidden;
+        width:600px;
+        height: 600px;
+        margin-right: auto;
+        margin-left: auto;
+        border-radius: 0;
+        color: inherit;
+        background-color: whitesmoke;
+        border: 4px hidden ;
+        padding-bottom: 20px;
+    }
+    .leftimg{
+        float: left;
+        margin: 5px;
+        padding: 5px;
+    }
+    input{
+        box-shadow: 0px 0px 0px rgba(0,0,0,0.6);
+        margin-top:7px;
+        padding:2px;
+        margin-left: 5px;
+        margin-right: auto;
+        display: block;
+    }
+    input.desc{
+        height: 390px;
+        width: 500px;
+        padding: 5px;
+    }
+    html{
+        position: relative;
+        min-height:100%;
+    }
+    h1{
+        font-family: 'Marck Script',serif;
+    }
+    img.lnk{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        display: block;
+    }
+    .anaglyph {
+        font-size: 14pt;
+        color: black;
+    }
+    .font-effect-anaglyphic{                
+        font-size:18pt;
+        color:black;
+        font-family: impact, 'Times New Roman', Times, serif;
+        text-shadow: 0px 0px 0px rgba(0,0,0,0.6);
+    }
+    a.pos{
+        color:black;
+    }
+}

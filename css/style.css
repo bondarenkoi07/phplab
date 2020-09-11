@@ -1,0 +1,307 @@
+@import "/mobile.css";
+@import "/print.css" ;
+@import "/500px.css" ;
+@import url(https://fonts.googleapis.com/css?family=Arimo:400,400italic|Playfair+Display+SC:400,700&subset=latin,cyrillic);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:bold);
+@import url(http://fonts.googleapis.com/css?family=Vollkorn);
+
+/*@media only screen 
+and (min-device-width: 375px) 
+and (max-device-width: 740px) 
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) { 
+    body{
+        font-family:  'Playfair Display SC', serif; 
+        font-size: 11pt;
+        background-color:whitesmoke;
+        display: grid;
+        grid-template-areas:"header header header"
+        "nav article ads"
+        "footer footer footer";
+        grid-template-rows: 20px 1fr 20px;
+        grid-template-columns: minmax(70px,0.9fr) minmax(600px,8fr) minmax(70px,0.9fr);
+        grid-gap: 0px;
+        height: 100vh;
+        margin: 0;
+        background-image: url(back.jpg);
+    }
+    div.logo{
+        grid-area: logo;
+        padding-top: 5px;
+        font-size: 10pt;
+    }
+    and (min-width: 500px) and (max-width:1024px) 
+} */
+@media screen and (min-width:1024px) {
+body{
+    font-family:  'Playfair Display SC', serif; /* Семейство шрифтов */
+    font-size: 11pt;
+    background-color:whitesmoke;
+    display: grid;
+    grid-template-areas:"header header header"
+    "nav article ads"
+    "footer footer footer";
+    grid-template-rows: 60px 1fr 40px;
+    grid-template-columns: 70px minmax(600px,8fr) 140px;
+    grid-gap: 0;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+   /* background-image: url(back.jpg);*/
+}
+h1{
+    display: none;
+    position: absolute;
+    top:10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+div.menu{
+    grid-area: header;
+    border: 4px ridge #5daed2;
+    color:#f5f6f6; 
+    background-color:#4671D5;
+    border-radius: 0;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+.ad{
+    grid-area:ads;
+    font-size:80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    text-align: center;
+}
+div.ads{
+    grid-area:ads;
+    background-color: #8FA9FF;
+    height:280px;
+    font-size: 70%;
+    border: 4px ridge rgb(223, 154, 250);
+    border-radius:  10px;
+    text-align: center;
+}
+article{
+    grid-area: article;
+}
+nav{
+    grid-area: nav;
+    font-weight: 300;
+    background-color: #8FA9FF;
+    padding-bottom: 20px;
+}
+footer{
+    grid-area: footer;
+    background-color:#3D00F4;
+    color:whitesmoke;
+    text-align: center;
+    font-family:  Arial, 'Times New Roman', Times, serif ;
+    font-weight: 100;
+    font-style: oblique;
+}
+a{
+    font-family:Impact, fantasy, 'Arial Narrow Bold', sans-serif; /* Семейство шрифтов */
+    font-size: 13pt;
+    color:#f5f6f6;
+    text-decoration: none;
+}
+p{
+    padding-top:3px;
+    padding-bottom:3px;
+}
+h2{
+    margin-top:10px;
+    font-size: 8pt;
+}
+div{
+    color:black;
+    } 
+div.logo{
+    /*position: absolute; 
+    top: 12px; 
+    padding-top: 5px;
+    font-size: 16pt;
+    margin-right: 70vw;
+    margin-left:15px;
+    text-align: center;*/
+    margin-top: 10px; /* Положение от нижнего края */ /* Положение от правого края */
+    padding-top: 5px;         
+    font-size: 16pt;
+}
+.name{
+    border: 0px ridge whitesmoke;
+    border-radius:  10px;
+    background-color: #7e74b0;
+    color:#f5f6f6;
+    font-family:  impact, 'Times New Roman', Times, serif ;
+    height: 20px;
+    width: 200px;
+    padding: 5px;
+    text-decoration: none;
+  /*  margin-left: 20px;*/
+}
+div.position{
+    color:black;
+    background-color: inherit;
+    height: 400px;
+    width: 570px;
+    border:4px hidden;
+    margin-top: 1%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 10px;
+    border-radius: 7px;
+    border-bottom:1px ridge rgba(0,0,0,0.6);
+    margin-bottom:2px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+div.position1{
+    color:black;
+    background-color: inherit;
+    width: 256px;
+    border:4px hidden;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom:2vh;
+}
+
+.title{
+    font-size: 18pt;
+    width:300px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom:20px ;
+    text-align: center;
+}
+a.link{
+    margin:5px;
+    padding: 5px;
+    background-color: #00A6A6;
+    text-align: center;
+    height: 40px;
+}
+a.link:hover{
+    background-color: #1F0772;
+    height: 40px;
+    box-shadow: 7px 7px 5px rgba(0,0,0,0.6);
+}
+a.link.bottom{
+    margin:5px;
+    padding: 5px;
+    background-color:inherit;
+    text-align: center;
+    height: 20px;
+    padding-bottom: 0px;
+    margin-bottom: 0;
+}
+a.link.bottom:hover{
+    background-color: inherit;
+    color: #FFCE40;
+    box-shadow: 7px 7px 5px rgba(0,0,0,0.6);
+}
+div.catalog{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    min-width:310px;
+    width:60vw;
+    height:80vh;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 0;
+    color: inherit;
+    background-color: whitesmoke;
+    border: 4px hidden ;
+    padding-bottom: 20px;
+}
+div.catalog:hover{
+    overflow-y: scroll;
+}
+.leftimg{
+    float: left;
+    margin: 5px;
+    padding: 5px;
+}
+.font-effect-anaglyphic {
+    font-family: 'DejaVu Sans Mono', Arial;
+    font-size: inherit;
+    color: #FFD900;
+    background-color: #CD50FF;
+    background-size:cover;
+    padding:5px;
+    margin: 5px;
+    width: inherit;
+    height: inherit;
+    }    
+input.desc{
+    height: 390px;
+    width: 500px;
+    padding: 5px;
+}
+html{
+    position: relative;
+    min-height:100%;
+}
+h1{
+    font-family: 'Marck Script',serif;
+}
+img.lnk{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    display: block;
+}
+img.lnk:hover{
+    box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.61);
+}
+img.lnk:active{
+    box-shadow: 7px 7px 5px rgba(201, 54, 211, 0.61);
+    border:3px transparent rgb(201, 54, 211) ;
+}
+a.pos{
+    font-size: 14pt;
+    color:#9A6AD6;
+}
+.anaglyph {
+    font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+    font-size: 13pt;
+    color:#FFBA00	;
+    -webkit-text-stroke: 1px rgb(201, 54, 211);
+}
+div.catalog p{
+    padding: 1px;
+}
+td{
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+th{
+    border-width: 3px;
+    border-style: ridge;
+    border-color: black;
+}
+td.reg{
+    text-align: left;
+    border-width: 1px;
+    border-style: solid;
+    border-color: whitesmoke;
+}
+th.reg{
+    border-width: 3px;
+    border-style: ridge;
+    border-color: whitesmoke;
+}
+caption{
+    border-width: 3px;
+    border-style: ridge;
+    border-color: black;
+}
+p input{
+    margin-right: 11pt;
+}
+}
+
