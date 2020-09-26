@@ -1,6 +1,6 @@
-@import "/mobile.css";
-@import "/print.css" ;
-@import "/500px.css" ;
+@import "/static/css/mobile.css";
+@import "/static/css/print.css";
+@import "/static/css/500px.css";
 @import url(https://fonts.googleapis.com/css?family=Arimo:400,400italic|Playfair+Display+SC:400,700&subset=latin,cyrillic);
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:bold);
 @import url(http://fonts.googleapis.com/css?family=Vollkorn);

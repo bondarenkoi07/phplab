@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icon">
     <title>Каталог вакансий</title>
-    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/static/css/reset.css">
     <link href="http://allfont.ru/allfont.css?fonts=dejavu-sans-mono&effects=anaglyphic" rel="stylesheet" type="text/css" />
-    <link rel = "stylesheet" href="/css/style.css">
+    <link rel = "stylesheet" href="/static/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -18,7 +18,7 @@
             </div>
             <div class="catalog">
                 <div class = "position">
-                        <img src="image/1.jpeg" width = "100" height="100" class="leftimg" alt="Изображение офиса">
+                        <img src="../image/1.jpeg" width = "100" height="100" class="leftimg" alt="Изображение офиса">
                         <h3 class="anaglyph" >Офис-менеджер</h3>
                         <p><a class="pos">Заработная платан</a>: от 55 000 до 59 000 руб. на руки</p>
                         <p><a class="pos">Время работы</a>: с 9:00 до 16:00</p>
@@ -36,7 +36,7 @@
                             <p>Английский язык (письменный и устный – не ниже Upper Intermediate)</p>
                 </div>
                 <div class = "position">
-                        <img src="image/2.jpg" width = "100" height="100" class="leftimg" alt="Изображение логотиа Макдональдс">
+                        <img src="../image/2.jpg" width = "100" height="100" class="leftimg" alt="Изображение логотиа Макдональдс">
                         <h3 class="anaglyph" >Курьер Макдональдс</h3>
                         <p><a class="pos">Заработная платан</a>: от 10 000 до 20 000 руб.</p>
                         <p><a class="pos">Время работы</a>: свободный график</p>
@@ -46,7 +46,7 @@
                             <p>-Вежливое отношение к клиентам.</p>
                 </div>
                 <div class = "position"> 
-                        <img src="image/1.jpeg" width = "100" height="100" class="leftimg" alt="Изображение офиса">
+                        <img src="../image/1.jpeg" width = "100" height="100" class="leftimg" alt="Изображение офиса">
                         <h3 class="anaglyph" >Офис-менеджер</h3>
                         <p><a class="pos">Заработная платан</a>: от 30 000 до 39 000 руб. официальное трудоустройство</p>
                         <p><a class="pos">Время работы</a>: с 11:00 до 19:00</p>
@@ -61,7 +61,7 @@
                             <p>Английский язык (письменный и устный – не ниже Intermediate)</p>
                 </div>
                 <div class = "position"> 
-                        <img src="image/4.jpg" width = "100" height="100" class="leftimg" alt="Логотип 1С">
+                        <img src="../image/4.jpg" width = "100" height="100" class="leftimg" alt="Логотип 1С">
                         <h3 class="anaglyph" >Программист 1с</h3>
                         <p><a class="pos">Заработная платан</a>: от 60 000 до 69 000 руб.</p>
                         <p><a class="pos">Время работы</a>: Гибкий график, по договоренности</p>

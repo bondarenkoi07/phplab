@@ -15,13 +15,13 @@ class DeletePage extends ShopPage{
                     $query = $this->dbp->prepare('DELETE FROM items WHERE id='.$key1);
                     $query->execute();
                     if ($query->execute())
-                        header("refresh:0;url='http://db1.mati.su/php/show.php?delete=ok' ");
+                        header("refresh:0;url='http://localhost/php/show.php?delete=ok' ");
                     else
-                        header("refresh:0;url='http://db1.mati.su/php/show.php?delete=wrong' ");
+                        header("refresh:0;url='http://localhost/php/show.php?delete=wrong' ");
                     return 0;
                 }
             }
-        header("refresh:0;url='http://db1.mati.su/php/show.php?delete=empty' ");
+        header("refresh:0;url='http://localhost/php/show.php?delete=empty' ");
         return 1;
     }
 }

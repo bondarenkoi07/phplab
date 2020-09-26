@@ -6,19 +6,19 @@
     <link rel="stylesheet" href="/reset.css">
     <link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icon">
     <link href="http://allfont.ru/allfont.css?fonts=dejavu-sans-mono&effects=anaglyphic" rel="stylesheet" type="text/css" />
-    <link rel = "stylesheet" href="/css/style.css">
+    <link rel = "stylesheet" href="/static/css/style.css">
     <meta name="viewport" content=" initial-scale=1">
 </head>
 <body>
     <!--#include file="/header.html"-->
     <nav>
-        <p> <a href="/input.shtml"><img class="lnk" src="/image/input.jpg"  height="50" width="50" alt="Отправка вакансии"></a></p>
+        <p> <a href="/static/input.shtml"><img class="lnk" src="/image/input.jpg" height="50" width="50" alt="Отправка вакансии"></a></p>
         <p><a href="/php/goods.php"><img class="lnk" src="/image/premium_catalog.jpg" height="50" width="50" alt="Премиум каталог"></a></p>
         <p><a href="/php/cart.php"><img  class="lnk" src="/image/cart.jpg" height="50" width="50" alt="Премиум каталог"></a></p>
         <p><a href="/php/auth_db.php"><img  class="lnk" src="/image/valacas.jpg" height="50" width="50" alt="Авторизация"></a></p>
         <p><a href="/php/show.php"><img  class="lnk" src="/image/krol.jpg" height="50" width="50" alt="Список товаров"></a></p>
         <p><a href="/php/regexp.php"><img  class="lnk" src="/image/input.jpg" height="50" width="50" alt="Регистрация"></a></p>
-        <p><a href="/php/cab1.php"><img  class="lnk" src="/image/cab.jpeg" height="50" width="50" alt="Личный кабинет"></a></p>
+        <p><a href="/php/users_cab.php"><img class="lnk" src="/image/cab.jpeg" height="50" width="50" alt="Личный кабинет"></a></p>
     </nav>
 <article>
 <div class="title">

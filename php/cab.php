@@ -19,13 +19,13 @@
             $this->uri_mask="/(?<scheme>http[s]?|ftp):\/\/(?<domain>[\w\.-]+)\.(?<zone>[\w]+)\/?(?<path>[^?$]+)?(?<query>[^#$]+)?[#]?(?<fragment>[^$]+)?/";
             $this->phone_number_mask="/^(\+\d|\d)(\d{3,3})(\d{7,7})$/";
             $this->date_mask="/^(\d{1,4})-(\d{1,2})-(\d{1,2})/";
-            $this->ip_mask="/^(\d{1,3}).(\d{1,3}).(\d{1,3}).(\d{1,3})$/";
+            $this->ip_mask="/^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$$/gm";
             $this->Auth= new AuthPage();
             $this->dbp->beginTransaction();
             if(!isset($_SESSION['user'])||empty($_SESSION['user']))
                 $this->payload();
             else{
-                header( "refresh:0;url='http://db1.mati.su/php/goods.php' ");
+                header( "refresh:0;url='http://localhost/php/goods.php' ");
             }
         }
         public function payload()
@@ -145,11 +145,11 @@
     }
 $PageController = new RegProcess('');
             if($PageController->GetMsg()=="all is ok"){
-                header( "refresh:0;url='http://db1.mati.su/php/cab1.php' ");
+                header( "refresh:0;url='http://localhost/php/users_cab.php' ");
             }
             else{
                 setcookie("warning",$PageController->GetMsg());
-                header( "refresh:0;url='http://db1.mati.su/php/regexp.php' ");
+                header( "refresh:0;url='http://localhost/php/regexp.php' ");
             }
 
 ?>

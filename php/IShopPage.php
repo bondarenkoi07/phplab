@@ -14,12 +14,12 @@ abstract class ShopPage implements IShopPage
      protected  $dbp;
      function create_title(string $title =''){
          echo ' <head>
-        <title>'.$title.'</title>
+        <title>'.$title. '</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="/css/reset.css">
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/static/css/reset.css">
+        <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
         <link href="http://allfont.ru/allfont.css?fonts=dejavu-sans-mono&effects=anaglyphic" rel="stylesheet" type="text/css" />
-        <link rel = "stylesheet" href="/css/style.css">
+        <link rel = "stylesheet" href="/static/css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <meta name="viewport" content=" initial-scale=1">
     </head>';
@@ -27,28 +27,29 @@ abstract class ShopPage implements IShopPage
 }
     public function create_body()
     {
-        echo'    <body>
+        echo '    <body>
         <div class="menu">
             <div class="logo"><a class ="font-effect-anaglyphic" href="/">SHOP</a></div>
         </div>
         <nav>
-            <p> <a href="/input.shtml"><img class="lnk" src="/image/input.jpg"  height="50" width="50" alt="Отправка вакансии"></a></p>
+            <p> <a href="/static/input.shtml"><img class="lnk" src="/image/input.jpg"  height="50" width="50" alt="Отправка вакансии"></a></p>
             <p><a href="/php/goods.php"><img class="lnk" src="/image/premium_catalog.jpg" height="50" width="50" alt="Премиум каталог"></a></p>
             <p><a href="/php/cart.php"><img  class="lnk" src="/image/cart.jpg" height="50" width="50" alt="Премиум каталог"></a></p>
             <p><a href="/php/auth_db.php"><img  class="lnk" src="/image/valacas.jpg" height="50" width="50" alt="Авторизация"></a></p>
             <p><a href="/php/show.php"><img  class="lnk" src="/image/krol.jpg" height="50" width="50" alt="Список товаров"></a></p>
             <p><a href="/php/regexp.php"><img  class="lnk" src="/image/input.jpg" height="50" width="50" alt="Регистрация"></a></p>
-            <p><a href="/php/cab1.php"><img  class="lnk" src="/image/cab.jpeg" height="50" width="50" alt="Личный кабинет"></a></p>
+            <p><a href="/php/users_cab.php"><img  class="lnk" src="/image/cab.jpeg" height="50" width="50" alt="Личный кабинет"></a></p>
+            <p><a href="/php/fileupload.php"><img  class="lnk" src="/image/cab.jpeg" height="50" width="50" alt="Личный кабинет"></a></p>
         </nav>';
     }
     public function start_db_connection()
     {
         $host    = "localhost";
-        $db_name = "db1_market1";
-        $charset = "utf8";
-        $user    = "db1";
-        $pass    = "Ee010800";
-        $dsn = "mysql:host=$host;dbname=$db_name;charset=$charset;";
+        $port = '5432';
+        $db_name = "vacance";
+        $user    = "vacance";
+        $pass    = "fghfghfgh1337";
+        $dsn = "pgsql:host=$host;port=$port;dbname=$db_name;";
 
 
         $opt = array(
@@ -79,17 +80,20 @@ abstract class ShopPage implements IShopPage
 
 class AuthPage  {
     protected $dbp;
+    public $username;
     public function __construct()
     {
         $this->start_db_connection();
+        if($this->authed())
+            $this->username = $_SESSION['user'];
     }
     private function start_db_connection(){
         $host    = "localhost";
-        $db_name = "db1_market1";
-        $charset = "utf8";
-        $user    = "db1";
-        $pass    = "Ee010800";
-        $dsn = "mysql:host=$host;dbname=$db_name;charset=$charset;";
+        $port = '5432';
+        $db_name = "vacance";
+        $user    = "vacance";
+        $pass    = "fghfghfgh1337";
+        $dsn = "pgsql:host=$host;port=$port;dbname=$db_name;";
 
 
         $opt = array(
@@ -118,9 +122,9 @@ class AuthPage  {
             echo ' <form action="" method="POST">';
             echo "<input type='submit' name='exit' value='Выход'>";
             echo   ' </form> ';
-            header( "refresh:0;url='http://db1.mati.su/php/show.php' ");
+            header( "refresh:0;url='http://localhost/php/show.php' ");
             $_SESSION['cart'] = $_COOKIE['cart'] ??'';
-
+            $this->username = $_SESSION['user'];
         }
         else{
             echo 'invalid password';
