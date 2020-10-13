@@ -65,6 +65,11 @@ div.menu{
     border-radius: 0;
     font-family:Arial, Helvetica, sans-serif;
     text-align: left;
+    display:inline-block ;
+}
+img.clocker{
+    display: inline-block;
+    margin-left: 85vw;
 }
 .ad{
     grid-area:ads;
@@ -119,13 +124,7 @@ div{
     color:black;
     } 
 div.logo{
-    /*position: absolute; 
-    top: 12px; 
-    padding-top: 5px;
-    font-size: 16pt;
-    margin-right: 70vw;
-    margin-left:15px;
-    text-align: center;*/
+    display:inline-block ;
     margin-top: 10px; /* Положение от нижнего края */ /* Положение от правого края */
     padding-top: 5px;         
     font-size: 16pt;
@@ -143,6 +142,8 @@ div.logo{
   /*  margin-left: 20px;*/
 }
 div.position{
+    overflow-y: scroll;
+    overflow-x: hidden;
     color:black;
     background-color: inherit;
     height: 400px;
@@ -158,6 +159,8 @@ div.position{
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 div.position1{
+    overflow-y: scroll;
+    overflow-x: hidden;
     color:black;
     background-color: inherit;
     width: 256px;

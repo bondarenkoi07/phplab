@@ -1,5 +1,5 @@
 <?php
-
+include "image.php";
 
 interface IShopPage
 {
@@ -27,9 +27,12 @@ abstract class ShopPage implements IShopPage
 }
     public function create_body()
     {
+        $clock = new Image();
+        $clock->getimgname();
         echo '    <body>
         <div class="menu">
-            <div class="logo"><a class ="font-effect-anaglyphic" href="/">SHOP</a></div>
+            <div class="logo"><a class ="font-effect-anaglyphic" href="/">SHOP</a><img class="clocker" src="/image/clock.png" alt="hui" height="20" width="51"></div>
+            
         </div>
         <nav>
             <p> <a href="/static/input.shtml"><img class="lnk" src="/image/input.jpg"  height="50" width="50" alt="Отправка вакансии"></a></p>
@@ -108,7 +111,7 @@ class AuthPage  {
         return 0;
     }
     public function auth(string $login,string $password){
-        $query = $this->dbp->prepare('SELECT user_lab5.password,users.rigths from user_lab5 LEFT JOIN users on user_lab5.email = users.login where email =  (?)');
+        $query = $this->dbp->prepare('SELECT password,rights from users where email =  (?)');
         $query->bindParam(1, $login);
         $login = htmlspecialchars($login);
         $statement = $query->execute();
@@ -118,11 +121,10 @@ class AuthPage  {
         }
         elseif(md5($password) == $row['password'] ){
             $_SESSION['user']=$login;
-            $_SESSION['rigths']=$row['rigths'];
+            $_SESSION['rigths']=$row['rights'];
             echo ' <form action="" method="POST">';
             echo "<input type='submit' name='exit' value='Выход'>";
             echo   ' </form> ';
-            header( "refresh:0;url='http://localhost/php/show.php' ");
             $_SESSION['cart'] = $_COOKIE['cart'] ??'';
             $this->username = $_SESSION['user'];
         }

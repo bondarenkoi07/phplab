@@ -25,7 +25,7 @@
             if(!isset($_SESSION['user'])||empty($_SESSION['user']))
                 $this->payload();
             else{
-                header( "refresh:0;url='http://localhost/php/goods.php' ");
+                header( "refresh:0;url='http://localhost:8080/php/goods.php' ");
             }
         }
         public function payload()
@@ -63,10 +63,10 @@
 
                 if($expression){
                     $query = $this->dbp->prepare('INSERT INTO 
-                    user_lab5 
-                    (name,surname,password,email) 
+                    users
+                    (name,surname,password,email,rights) 
                     VALUES 
-                    (?,?,?,?)');
+                    (?,?,?,?,?)');
                     $name=htmlspecialchars($_POST['name']);
                     $surname=htmlspecialchars($_POST['surname']);
                     $email=htmlspecialchars($_POST['email']);
@@ -75,9 +75,10 @@
                     $query->bindParam(2, $surname);
                     $query->bindParam(3, $password);
                     $query->bindParam(4, $email);
+                    $query->bindParam(5,'user');
                     $query->execute();
                     if(preg_match($this->date_mask,$_POST['birthday']) && isset($_POST['birthday'])&&!empty($_POST['birthday']) ){
-                        $query_bd=$this->dbp->prepare("UPDATE user_lab5
+                        $query_bd=$this->dbp->prepare("UPDATE users
                         SET birthday= '".$_POST['birthday']."' WHERE email='".$email."'");
                         $query_bd->execute();
                     }
@@ -86,7 +87,7 @@
                     }
                     if(preg_match($this->uri_mask,$_POST['url'])&&isset($_POST['url'])&&!empty($_POST['url'])){
                         try{
-                            $query_uri=$this->dbp->prepare("UPDATE user_lab5
+                            $query_uri=$this->dbp->prepare("UPDATE users
                             SET site= '".$_POST['url']."' WHERE email='".$email."'");
                             $query_uri->execute();
                         }
@@ -98,7 +99,7 @@
                         $this->message="Некорректный uri.";
                     }
                     if(preg_match($this->ip_mask,$_POST['ip'])&&isset($_POST['ip'])&&!empty($_POST['ip'])){
-                        $query_ip=$this->dbp->prepare("UPDATE user_lab5
+                        $query_ip=$this->dbp->prepare("UPDATE users
                         SET ip_adress= '".$_POST['ip']."' WHERE email='".$email."'");
                         $query_ip->execute();
                     }
@@ -106,7 +107,7 @@
                         $this->message="Неверный ip.";
                     }
                     if(preg_match($this->phone_number_mask,$_POST['phone'])&&isset($_POST['phone'])&&!empty($_POST['phone']) ){
-                        $query_pn=$this->dbp->prepare("UPDATE user_lab5
+                        $query_pn=$this->dbp->prepare("UPDATE users
                         SET phone_number= '".$_POST['phone']."' WHERE email='".$email."'");
                         $query_pn->execute();
 
@@ -117,18 +118,6 @@
                     if($this->message=="all is ok"){
                         session_start();
                         $_SESSION['user_lab5']=$email;
-                        try{
-                            $q=$this->dbp->prepare("insert into users (rigths,login,password) 
-                                                        SELECT 'user',user_lab5.email,user_lab5.password as ps 
-                                                        FROM user_lab5 left join users 
-                                                        on user_lab5.email=users.login 
-                                                        WHERE users.login is NULL");
-                            $q->execute();
-                            $this->dbp->commit();
-                        }
-                        catch(PDOException $e){
-                            echo $e->getMessage();
-                        }
                     }
                     else{
                         $this->dbp->rollBack();
@@ -145,11 +134,11 @@
     }
 $PageController = new RegProcess('');
             if($PageController->GetMsg()=="all is ok"){
-                header( "refresh:0;url='http://localhost/php/users_cab.php' ");
+                header( "refresh:0;url='http://localhost:8080/php/users_cab.php' ");
             }
             else{
                 setcookie("warning",$PageController->GetMsg());
-                header( "refresh:0;url='http://localhost/php/regexp.php' ");
+                header( "refresh:0;url='http://localhost:8080/php/regexp.php' ");
             }
 
 ?>

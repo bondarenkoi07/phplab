@@ -1,0 +1,94 @@
+<html lang="ru">
+    <head>
+        <title>Diagram</title>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@latest/dist/svg.min.js"></script>
+    </head>
+    <body>
+    <script lang="javascript" >
+
+        let arr = [12,3,4.5,8,9,5,18];
+        let colors = ['green','blue','cyan','red','grey','yellow','pink'];
+        function DrawDiagram(){
+
+            let max = Math.max.apply(null,arr);
+            let len = max-Math.min.apply(null,arr);
+            console.log("length value:"+String(len))
+            let n = Math.round( (len)/5+1);
+            console.log("division value:"+String(n))
+            let grid_length = 20;
+            max = n*4;
+            let interval = (198-18)/arr.length;
+            let column_width = interval/2;
+
+            draw.line(18,15,18,105).stroke({ color: 'cyan', width: 1, linecap: 'round' });
+            draw.line(198,15,198,105).stroke({ color: 'cyan', width: 1, linecap: 'round' });
+
+            for ( let i = 0;i<5;i++){
+                let line = draw.line(20,(i+1)*grid_length,200,(i+1)*grid_length).stroke({ color: 'cyan', width: 1, linecap: 'round' });
+                let str = String(max - n*i);
+                let text = draw.text(str);
+                text.amove(2,(i+1)*grid_length-15);
+            }
+            for(let i=0;i<arr.length;i++){
+                var scaled = Math.round(arr[i]*grid_length/n);
+                let rec = draw.rect(column_width,scaled).attr({
+                    fill:colors[i%colors.length],
+                    x:20+i*interval,
+                    y:100-scaled
+                });
+            }
+            console.log(scaled);
+        }
+
+
+        function addButtons(){
+            let container = document.getElementById('zone');
+
+            for(let i =0;i<7;i++){
+                let input = document.createElement("input");
+                input.setAttribute("type","number");
+                input.setAttribute("value",String((Math.round(100*Math.random()))%20));
+                container.appendChild(input);
+            }
+
+
+
+        }
+
+        SVG.on(document, 'DOMContentLoaded', function() {
+            window.draw = SVG().addTo('#info').size(300, 300).attr({
+                x:30,
+                y:30
+            });
+            addButtons();
+            DrawDiagram();
+
+
+        })
+
+        function loading() {
+            let container = document.getElementById('zone');
+            arr = [];
+            window.draw.clear();
+            for (let i=0, child; child=container.children[i]; i++) {
+                //elementChildrens - коллеция детей списка
+                //child - последовательно, каждый из элементов elementChildrens
+                let value = Number.parseFloat(child.value);
+                if(!Number.isNaN(value)&&value>0) {
+                    arr[i] =value;
+                }
+            }
+
+            DrawDiagram();
+        }
+
+    </script>
+        <article id="info">
+
+        </article>
+        <div id="zone" ></div>
+    <button type="button" id="ButtonCreate" onclick="loading()">Go</button>
+    </body>
+</html>
+

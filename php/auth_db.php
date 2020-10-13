@@ -23,6 +23,7 @@ class Auth_Page extends ShopPage{
         }
         elseif(isset($_POST)&& !empty($_POST['login'])){
             $this->AuthController->auth($_POST['login'],$_POST['password']);
+            header("refresh:0;url='".$_SERVER['HTTP_REFERER']."' ");
         }
         else{
             echo ' <form action="" method="POST">

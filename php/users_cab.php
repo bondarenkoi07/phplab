@@ -29,7 +29,7 @@
             {
                 if($this->user->authed()){
                     $uri_mask="/(?<scheme>http[s]?|ftp):\/\/(?<domain>[\w\.-]+)\.(?<zone>[\w]+)\/?(?<path>[^?$]+)?(?<query>[^#$]+)?[#]?(?<fragment>[^$]+)?/";
-                    $query = $this->dbp->query("SELECT site FROM user_lab5 where email='".$_SESSION['user']."'");
+                    $query = $this->dbp->query("SELECT site FROM users where email='".$_SESSION['user']."'");
                     $row=$query->fetch();
                     if(isset($row['site'])&&!empty($row['site'])) {
                         preg_match($uri_mask, $row['site'], $match);
@@ -49,7 +49,7 @@
                     echo   ' </form> ';
                 }
                 else{
-                   header( "refresh:0;url='http://localhost/php/auth_db.php' ");
+                   header( "refresh:0;url='http://localhost:8080/php/auth_db.php' ");
                 }
             }
 

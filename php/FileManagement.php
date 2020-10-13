@@ -13,16 +13,18 @@ class FileManagement {
         $this->user = $user;
     }
     public function GetFilenames(){
-        $path = '/home/ilya/phplab/userfiles/'.$this->user->username;
+        $path = 'C:\\www\\phplab\\userfiles\\'.$this->user->username;
         if($this->user->authed()){
             $catalog = opendir($path);
             $this->payload .= "<form enctype='text/plain' method='get' >";
             while ($current_file = readdir($catalog) ) {
                 if ($current_file !== ".." && $current_file !== '.') {
+                    $this->payload .= '<img src="/userfiles/'.$this->user->username.'/'.$current_file.'" width = "100" height="100"  alt="'.$current_file.'">';
                     $this->payload .= " <p><input type='checkbox' name='delete[]'  value='$current_file'><a class='pos'>$current_file</a></p> ";
 
                 }
             }
+
             $this->payload .= "   <input type='submit'  value='Удалить'></form>";
         }
     }
@@ -32,7 +34,7 @@ class FileManagement {
     public function RemoveFile(string $filename){
         try {
             $hell = "ok";
-            $path = '/home/ilya/phplab/userfiles/' . $this->user->username.'/';
+            $path = 'C:\\www\\phplab\\userfiles\\' . $this->user->username.'\\';
             $this->catalog = opendir($path);
             while ($current_file = readdir($this->catalog)) {
                 if ($current_file == $filename) {

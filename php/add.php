@@ -18,11 +18,11 @@ include "IShopPage.php";
                     $name=htmlspecialchars($_POST['name']);
                     $cost=htmlspecialchars($_POST['cost']);
                     if($query->execute())
-                        header( "refresh:0;url='http://localhost/php/show.php?all=is+ok' ");
+                        header( "refresh:0;url='http://localhost:8080/php/show.php?all=is+ok' ");
                     else
-                        header( "refresh:0;url='http://localhost/php/show.php?all=is+not+ok' ");
+                        header( "refresh:0;url='http://localhost:8080/php/show.php?all=is+not+ok' ");
                 }
-            header( "refresh:0;url='http://localhost/php/show.php?empty=input' ");
+            header( "refresh:0;url='http://localhost:8080/php/show.php?empty=input' ");
         }
     }
     $PageController = new AddPage('');

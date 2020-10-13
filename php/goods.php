@@ -26,7 +26,7 @@ class ShopGoods extends ShopPage{
     }
     private function input_template(string $key){
         echo ' <div class="position1">
-                <form action="cart.php" method="POST">
+                <form action="/php/cart.php" method="POST">
         '.$this->product[$key]['name'].' - '.$this->product[$key]['cost'].' <input type="hidden" name="p'.$key.'" value="'.$key.'"><input type="submit"  value="В корзину">
                 </form>
              </div>';
