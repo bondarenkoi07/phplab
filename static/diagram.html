@@ -35,7 +35,7 @@
                 let rec = draw.rect(column_width,scaled).attr({
                     fill:colors[i%colors.length],
                     x:20+i*interval,
-                    y:100-scaled
+                    y:5*grid_length-scaled
                 });
             }
             console.log(scaled);
@@ -47,7 +47,7 @@
 
             for(let i =0;i<7;i++){
                 let input = document.createElement("input");
-                input.setAttribute("type","number");
+                input.setAttribute("type","text");
                 input.setAttribute("value",String((Math.round(100*Math.random()))%20));
                 container.appendChild(input);
             }
@@ -58,8 +58,8 @@
 
         SVG.on(document, 'DOMContentLoaded', function() {
             window.draw = SVG().addTo('#info').size(300, 300).attr({
-                x:30,
-                y:30
+                x:200,
+                y:50
             });
             addButtons();
             DrawDiagram();
@@ -77,6 +77,14 @@
                 let value = Number.parseFloat(child.value);
                 if(!Number.isNaN(value)&&value>0) {
                     arr[i] =value;
+                }
+                else{
+                    let num = Number.parseFloat(prompt('Введите положительное число:'));
+                    while (num<0||Number.isNaN(num)){
+                         num = Number.parseFloat(prompt('Введите положительное число:'));
+                         console.log(num);
+                    }
+                    arr[i] =num;
                 }
             }
 

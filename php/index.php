@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title>ЛР1. Ввод</title>
+    <title>Сложный редирект</title>
     <link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/static/css/reset.css">
     <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
