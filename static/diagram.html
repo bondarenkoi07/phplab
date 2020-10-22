@@ -8,6 +8,7 @@
     <script lang="javascript" >
 
         let arr = [12,3,4.5,8,9,5,18];
+        let arr_years = ['2014','2015','2016','2017','2018','2019','2020'];
         let colors = ['green','blue','cyan','red','grey','yellow','pink'];
         function DrawDiagram(){
 
@@ -17,26 +18,40 @@
             let n = Math.round( (len)/5+1);
             console.log("division value:"+String(n))
             let grid_length = 20;
-            max = n*4;
+            max = n*5;
             let interval = (198-18)/arr.length;
             let column_width = interval/2;
 
-            draw.line(18,15,18,105).stroke({ color: 'cyan', width: 1, linecap: 'round' });
-            draw.line(198,15,198,105).stroke({ color: 'cyan', width: 1, linecap: 'round' });
+            draw.line(18,15,18,125).stroke({ color: 'cyan', width: 1, linecap: 'round' });
+            draw.line(198,15,198,125).stroke({ color: 'cyan', width: 1, linecap: 'round' });
 
-            for ( let i = 0;i<5;i++){
+            for ( let i = 0;i<=5;i++){
                 let line = draw.line(20,(i+1)*grid_length,200,(i+1)*grid_length).stroke({ color: 'cyan', width: 1, linecap: 'round' });
                 let str = String(max - n*i);
                 let text = draw.text(str);
                 text.amove(2,(i+1)*grid_length-15);
+
             }
             for(let i=0;i<arr.length;i++){
                 var scaled = Math.round(arr[i]*grid_length/n);
+                let text = draw.text(String(arr[i]));
+                text.amove(20+i*interval-2,6*grid_length-scaled-22);
+
+                let year =  draw.text(String(arr_years[i]));
+                year.amove(20+i*interval+5,105);
+                year.font({
+                    size:12,
+                })
+                year.attr({
+                    style:'writing-mode: tb;',
+                    rotate:30
+                })
                 let rec = draw.rect(column_width,scaled).attr({
                     fill:colors[i%colors.length],
                     x:20+i*interval,
-                    y:5*grid_length-scaled
+                    y:6*grid_length-scaled
                 });
+
             }
             console.log(scaled);
         }
